@@ -16,3 +16,7 @@ async def counter_reply(request: SocialPost):
     reply = generate_counter(request.text, intent, retrieved)
     final_reply = moderate(reply)
     return {"reply": final_reply, "intent": intent}
+if __name__ == "__main__":
+    import uvicorn
+    print("✅ CounterBot API is running on port 8000")
+    uvicorn.run("app:app", host="0.0.0.0", port=8000)
